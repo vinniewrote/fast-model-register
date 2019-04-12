@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CashUp from './components/AddCash';
+import CashDown from './components/RemoveCash';
+import CashAvailable from './components/AvailableCash';
+import { RegisterContext } from './contexts/RegisterContext';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h2>Fast Model Cash Register</h2>
         </header>
+        <div className="register-display">
+          <RegisterContext.Consumer>
+            <CashAvailable />
+          </RegisterContext.Consumer>
+
+          <RegisterContext.Consumer>
+            <CashUp />
+          </RegisterContext.Consumer>
+          <CashDown />
+        </div>
       </div>
     );
   }
