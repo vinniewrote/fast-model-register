@@ -3,13 +3,14 @@ import React, { createContext, Component } from 'react';
 export const RegisterContext = createContext();
 
 export class RegisterProvider extends Component {
-  // state = [];
-  // $1: 0,
-  // $2: 0,
-  // $5: 0,
-  // $10: 0,
-  // $20: 0,
-  // total: 0,
+  state = {
+    $1: 0,
+    $2: 0,
+    $5: 0,
+    $10: 0,
+    $20: 0,
+    total: 0,
+  };
 
   checkVals = () => {
     const ones = Number(document.getElementById('add-one').value);
@@ -27,6 +28,7 @@ export class RegisterProvider extends Component {
       <RegisterContext.Provider>
         value=
         {{
+          ...this.state,
           checkVals: this.checkVals,
         }}
         >{this.props.children}
