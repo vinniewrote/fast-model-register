@@ -4,7 +4,7 @@ class RemoveCash extends Component {
   render() {
     return (
       <div className="transaction">
-        <h3>Add Cash to Register</h3>
+        <h3>Take Cash from Register</h3>
       </div>
     );
   }

@@ -14,12 +14,22 @@ class App extends Component {
         </header>
         <div className="register-display">
           <RegisterContext.Consumer>
-            <CashAvailable />
+            {({ $1, $2, $5, $10, $20, total }) => (
+              <CashAvailable
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                total={total}
+              />
+            )}
           </RegisterContext.Consumer>
 
           <RegisterContext.Consumer>
-            <CashUp />
+            {({ checkVals }) => <CashUp checkVals={checkVals} />}
           </RegisterContext.Consumer>
+
           <CashDown />
         </div>
       </div>

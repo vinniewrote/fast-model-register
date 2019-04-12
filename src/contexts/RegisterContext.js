@@ -21,17 +21,25 @@ export class RegisterProvider extends Component {
     const grandTotal =
       ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
     console.log(grandTotal);
+    this.setState({
+      $1: ones,
+      $2: twos,
+      $5: fives,
+      $10: tens,
+      $20: twentys,
+      total: grandTotal,
+    });
   };
 
   render() {
     return (
-      <RegisterContext.Provider>
-        value=
-        {{
+      <RegisterContext.Provider
+        value={{
           ...this.state,
           checkVals: this.checkVals,
         }}
-        >{this.props.children}
+      >
+        {this.props.children}
       </RegisterContext.Provider>
     );
   }
