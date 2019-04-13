@@ -1,4 +1,4 @@
-##FastModel Sports Cash Register
+## FastModel Sports Cash Register
 
 In the project directory, you can run:
 
