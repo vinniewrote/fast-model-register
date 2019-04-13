@@ -1,6 +1,4 @@
-#FastModel Sports Cash Register
-
-## Available Scripts
+##FastModel Sports Cash Register
 
 In the project directory, you can run:
 
