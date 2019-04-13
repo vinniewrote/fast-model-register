@@ -21,6 +21,7 @@ export class RegisterProvider extends Component {
     const grandTotal =
       ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
     console.log(grandTotal);
+    document.getElementById('sum-total').value = grandTotal;
     this.setState({
       $1: ones,
       $2: twos,
@@ -28,6 +29,25 @@ export class RegisterProvider extends Component {
       $10: tens,
       $20: twentys,
       total: grandTotal,
+    });
+  };
+
+  takeVals = () => {
+    const ones = Number(document.getElementById('take-one').value);
+    const twos = Number(document.getElementById('take-two').value);
+    const fives = Number(document.getElementById('take-five').value);
+    const tens = Number(document.getElementById('take-ten').value);
+    const twentys = Number(document.getElementById('take-twenty').value);
+    const grandTake =
+      ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
+    console.log(grandTake);
+    this.setState({
+      $1: ones,
+      $2: twos,
+      $5: fives,
+      $10: tens,
+      $20: twentys,
+      total: grandTake,
     });
   };
 

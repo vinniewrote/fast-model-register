@@ -26,7 +26,7 @@ class AddCash extends Component {
             <p>Add $20</p>
             <input id="add-twenty" type="number" name="points" step="1" />
           </button>
-          <input className="total-to-add" type="text" />
+          <input id="sum-total" className="total-to-add" type="text" />
           <button type="submit" onClick={this.props.checkVals.bind(this)}>
             Submit
           </button>
