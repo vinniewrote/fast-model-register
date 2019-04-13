@@ -4,11 +4,13 @@ export const RegisterContext = createContext();
 
 export class RegisterProvider extends Component {
   state = {
-    $1: 0,
-    $2: 0,
-    $5: 0,
-    $10: 0,
-    $20: 0,
+    dollarInventory: {
+      $1: 0,
+      $2: 0,
+      $5: 0,
+      $10: 0,
+      $20: 0,
+    },
     total: 0,
   };
 
@@ -23,11 +25,13 @@ export class RegisterProvider extends Component {
     console.log(grandTotal);
     document.getElementById('sum-total').value = grandTotal;
     this.setState({
-      $1: ones,
-      $2: twos,
-      $5: fives,
-      $10: tens,
-      $20: twentys,
+      dollarInventory: {
+        $1: ones,
+        $2: twos,
+        $5: fives,
+        $10: tens,
+        $20: twentys,
+      },
       total: grandTotal,
     });
   };
@@ -42,11 +46,13 @@ export class RegisterProvider extends Component {
       ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
     console.log(grandTake);
     this.setState({
-      $1: ones,
-      $2: twos,
-      $5: fives,
-      $10: tens,
-      $20: twentys,
+      dollarInventory: {
+        $1: ones,
+        $2: twos,
+        $5: fives,
+        $10: tens,
+        $20: twentys,
+      },
       total: grandTake,
     });
   };

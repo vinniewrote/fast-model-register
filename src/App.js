@@ -17,13 +17,9 @@ class App extends Component {
           <Storage
             render={({ load, save, remove }) => (
               <RegisterContext.Consumer>
-                {({ $1, $2, $5, $10, $20, total }) => (
+                {({ dollarInventory, total }) => (
                   <CashAvailable
-                    $1={$1}
-                    $2={$2}
-                    $5={$5}
-                    $10={$10}
-                    $20={$20}
+                    dollarInventory={dollarInventory}
                     total={total}
                     load={load}
                     save={save}
