@@ -4,57 +4,38 @@ export const RegisterContext = createContext();
 
 export class RegisterProvider extends Component {
   state = {
-    dollarInventory: {
-      $1: 0,
-      $2: 0,
-      $5: 0,
-      $10: 0,
-      $20: 0,
-    },
-    total: 0,
-  };
-
-  checkVals = () => {
-    const ones = Number(document.getElementById('add-one').value);
-    const twos = Number(document.getElementById('add-two').value);
-    const fives = Number(document.getElementById('add-five').value);
-    const tens = Number(document.getElementById('add-ten').value);
-    const twentys = Number(document.getElementById('add-twenty').value);
-    const grandTotal =
-      ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
-    console.log(grandTotal);
-    document.getElementById('sum-total').value = grandTotal;
-    this.setState({
-      dollarInventory: {
-        $1: ones,
-        $2: twos,
-        $5: fives,
-        $10: tens,
-        $20: twentys,
+    currencyVault: [
+      {
+        denomination: 1,
+        name: 'one dollar',
+        id: '$1',
+        onHand: 0,
       },
-      total: grandTotal,
-    });
-  };
-
-  takeVals = () => {
-    const ones = Number(document.getElementById('take-one').value);
-    const twos = Number(document.getElementById('take-two').value);
-    const fives = Number(document.getElementById('take-five').value);
-    const tens = Number(document.getElementById('take-ten').value);
-    const twentys = Number(document.getElementById('take-twenty').value);
-    const grandTake =
-      ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
-    console.log(grandTake);
-    this.setState({
-      dollarInventory: {
-        $1: ones,
-        $2: twos,
-        $5: fives,
-        $10: tens,
-        $20: twentys,
+      {
+        denomination: 2,
+        name: 'two dollar',
+        id: '$2',
+        onHand: 0,
       },
-      total: grandTake,
-    });
+      {
+        denomination: 5,
+        name: 'five dollar',
+        id: '$5',
+        onHand: 0,
+      },
+      {
+        denomination: 10,
+        name: 'ten dollar',
+        id: '$10',
+        onHand: 0,
+      },
+      {
+        denomination: 20,
+        name: 'twenty dollar',
+        id: '$20',
+        onHand: 0,
+      },
+    ],
   };
 
   render() {
@@ -62,7 +43,6 @@ export class RegisterProvider extends Component {
       <RegisterContext.Provider
         value={{
           ...this.state,
-          checkVals: this.checkVals,
         }}
       >
         {this.props.children}

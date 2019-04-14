@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import CashUp from './components/AddCash';
-import CashDown from './components/RemoveCash';
-import CashAvailable from './components/AvailableCash';
+import AddCash from './components/AddCash';
+import RemoveCash from './components/RemoveCash';
+import CashAvailable from './components/CashAvailable';
 import { RegisterContext } from './contexts/RegisterContext';
 import Storage from './components/Storage';
 
@@ -17,9 +17,9 @@ class App extends Component {
           <Storage
             render={({ load, save, remove }) => (
               <RegisterContext.Consumer>
-                {({ dollarInventory, total }) => (
+                {({ currencyVault, total }) => (
                   <CashAvailable
-                    dollarInventory={dollarInventory}
+                    currencyVault={currencyVault}
                     total={total}
                     load={load}
                     save={save}
@@ -29,11 +29,11 @@ class App extends Component {
               </RegisterContext.Consumer>
             )}
           />
-
           <RegisterContext.Consumer>
-            {({ checkVals }) => <CashUp checkVals={checkVals} />}
+            {({ currencyVault }) => <AddCash currencyVault={currencyVault} />}
           </RegisterContext.Consumer>
-          <CashDown />
+
+          {/* <RemoveCash /> */}
         </div>
       </div>
     );

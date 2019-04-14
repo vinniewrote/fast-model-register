@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
 
 class RemoveCash extends Component {
+  cashDown = () => {
+    const ones = Number(document.getElementById('take-one').value);
+    const twos = Number(document.getElementById('take-two').value);
+    const fives = Number(document.getElementById('take-five').value);
+    const tens = Number(document.getElementById('take-ten').value);
+    const twentys = Number(document.getElementById('take-twenty').value);
+    const grandTake =
+      ones * 1 + twos * 2 + fives * 5 + tens * 10 + twentys * 20;
+    console.log(grandTake);
+    this.setState({
+      currencyVault: {
+        $1: ones,
+        $2: twos,
+        $5: fives,
+        $10: tens,
+        $20: twentys,
+      },
+      total: grandTake,
+    });
+  };
+
   render() {
     return (
       <div className="transaction">
@@ -27,7 +48,9 @@ class RemoveCash extends Component {
             <input id="take-twenty" type="number" name="points" step="1" />
           </button>
           <input id="amount-to-take" className="total-to-take" type="text" />
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={this.cashDown.bind(this)}>
+            Submit
+          </button>
         </div>
       </div>
     );
