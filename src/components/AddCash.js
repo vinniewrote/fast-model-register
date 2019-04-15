@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 class AddCash extends Component {
-  componentWillMount() {
-    const currRegister = { ...this.props.currencyVault };
+  componentDidMount() {
+    const arrRegister = _.cloneDeep(this.props.currencyVault);
     this.setState({
-      currRegister,
+      arrRegister,
     });
   }
 
@@ -12,17 +13,24 @@ class AddCash extends Component {
     const target = event.target;
     const name = target.name;
     const value = Number(target.value);
-    this.setState({
-      [name]: value,
-    });
+    const offer = this.state.arrRegister.find(o => o.id === name);
+    console.log(offer);
+    const priorCount = offer.onHand;
+    if (offer.onHand) {
+      const newCount = priorCount + value;
+      const updatedCount = console.log(newCount);
+      return (offer.onHand = newCount);
+    }
   };
 
   render() {
+    // const { currRegister } = this.state;
+    // console.log(currRegister);
     return (
-      <div className="addCash">
+      <div className="cash-up">
         <h4>Add Cash to Register</h4>
-        <div className="addWindow">
-          {this.state.currRegister.map(coin => (
+        <div className="cash-up-window">
+          {this.props.currencyVault.map(coin => (
             <div className="add-cash">
               <p>Add {coin.id}</p>
               <input
@@ -34,10 +42,10 @@ class AddCash extends Component {
               />
             </div>
           ))}
+        </div>
+        <div className="close-cash-window">
           <input type="text" />
-          <button type="submit" onClick={this.cashUp.bind(this)}>
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </div>
       </div>
     );

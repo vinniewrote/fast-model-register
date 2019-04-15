@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import AddCash from './components/AddCash';
 import RemoveCash from './components/RemoveCash';
+import ChangeCash from './components/ChangeCash';
 import CashAvailable from './components/CashAvailable';
 import { RegisterContext } from './contexts/RegisterContext';
 import Storage from './components/Storage';
@@ -30,10 +31,21 @@ class App extends Component {
             )}
           />
           <RegisterContext.Consumer>
-            {({ currencyVault }) => <AddCash currencyVault={currencyVault} />}
+            {({ currencyVault }) => (
+              <AddCash currencyVault={currencyVault} key={currencyVault.id} />
+            )}
           </RegisterContext.Consumer>
 
-          {/* <RemoveCash /> */}
+          <RegisterContext.Consumer>
+            {({ currencyVault }) => (
+              <RemoveCash currencyVault={currencyVault} />
+            )}
+          </RegisterContext.Consumer>
+          <RegisterContext.Consumer>
+            {({ currencyVault }) => (
+              <ChangeCash currencyVault={currencyVault} />
+            )}
+          </RegisterContext.Consumer>
         </div>
       </div>
     );

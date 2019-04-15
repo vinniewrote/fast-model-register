@@ -1,45 +1,39 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
-class RemoveCash extends Component {
+class ChangeCash extends Component {
   componentDidMount() {
-    const arrRegister = _.cloneDeep(this.props.currencyVault);
+    const currRegister = { ...this.props.currencyVault };
     this.setState({
-      arrRegister,
+      currRegister,
     });
   }
 
-  takeTheCash = event => {
+  countTheCash = event => {
     const target = event.target;
     const name = target.name;
     const value = Number(target.value);
-    const offer = this.state.arrRegister.find(o => o.id === name);
-    const priorCount = offer.onHand;
-    if (offer.onHand === 0) {
-      console.log('cant do it');
-    } else {
-      const newCount = priorCount - value;
-      console.log(newCount);
-      this.setState({});
-    }
+    console.log(name);
+    console.log(value);
+    // const offer = this.state.currRegister.find(o => o.id === name);
+    // console.log(offer);
   };
 
   render() {
     // const { currRegister } = this.state;
     // console.log(currRegister);
     return (
-      <div className="cash-down">
-        <h4>Take Cash from Register</h4>
-        <div className="cash-down-window">
+      <div className="cash-swap">
+        <h4>Swap Cash</h4>
+        <div className="cash-swap-window">
           {this.props.currencyVault.map(coin => (
             <div className="remove-cash">
-              <p>Take {coin.id}</p>
+              <p>Swap {coin.id}</p>
               <input
                 type="number"
                 name={coin.id}
                 min="0"
                 step="1"
-                onChange={this.takeTheCash}
+                onChange={this.countTheCash}
               />
             </div>
           ))}
@@ -53,4 +47,4 @@ class RemoveCash extends Component {
   }
 }
 
-export default RemoveCash;
+export default ChangeCash;

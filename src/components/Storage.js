@@ -9,18 +9,6 @@ class Storage extends Component {
     this.checkLocalStorageExists();
   }
 
-  checkLocalStorageExists() {
-    const testKey = 'test';
-
-    try {
-      localStorage.setItem(testKey, testKey);
-      localStorage.removeItem(testKey);
-      this.setState({ localStorageAvailable: true });
-    } catch (e) {
-      this.setState({ localStorageAvailable: false });
-    }
-  }
-
   load = key => {
     if (this.state.localStorageAvailable) {
       return localStorage.getItem(key);
@@ -41,15 +29,26 @@ class Storage extends Component {
     }
   };
 
+  checkLocalStorageExists() {
+    const testKey = 'test';
+    try {
+      localStorage.setItem(testKey, testKey);
+      localStorage.removeItem(testKey);
+      this.setState({ localStorageAvailable: true });
+    } catch (e) {
+      this.setState({ localStorageAvailable: false });
+    }
+  }
+
   render() {
     return (
-      <span>
+      <div className="storage-wrapper">
         {this.props.render({
           load: this.load,
           save: this.save,
           remove: this.remove,
         })}
-      </span>
+      </div>
     );
   }
 }
