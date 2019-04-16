@@ -14,39 +14,17 @@ class App extends Component {
         <header className="App-header">
           <h2>Fast Model Cash Register</h2>
         </header>
-        <div className="register-display">
-          <Storage
-            render={({ load, save, remove }) => (
-              <RegisterContext.Consumer>
-                {({ currencyVault, total }) => (
-                  <CashAvailable
-                    currencyVault={currencyVault}
-                    total={total}
-                    load={load}
-                    save={save}
-                    remove={remove}
-                  />
-                )}
-              </RegisterContext.Consumer>
-            )}
-          />
-          <RegisterContext.Consumer>
-            {({ currencyVault }) => (
-              <AddCash currencyVault={currencyVault} key={currencyVault.id} />
-            )}
-          </RegisterContext.Consumer>
-
-          <RegisterContext.Consumer>
-            {({ currencyVault }) => (
+        <RegisterContext.Consumer>
+          {({ currencyVault, total }) => (
+            <div className="register-display">
+              <CashAvailable currencyVault={currencyVault} />
+              />
+              <AddCash currencyVault={currencyVault} />
               <RemoveCash currencyVault={currencyVault} />
-            )}
-          </RegisterContext.Consumer>
-          <RegisterContext.Consumer>
-            {({ currencyVault }) => (
               <ChangeCash currencyVault={currencyVault} />
-            )}
-          </RegisterContext.Consumer>
-        </div>
+            </div>
+          )}
+        </RegisterContext.Consumer>
       </div>
     );
   }
