@@ -5,7 +5,6 @@ import RemoveCash from './components/RemoveCash';
 import ChangeCash from './components/ChangeCash';
 import CashAvailable from './components/CashAvailable';
 import { RegisterContext } from './contexts/RegisterContext';
-import Storage from './components/Storage';
 
 class App extends Component {
   render() {
@@ -15,13 +14,55 @@ class App extends Component {
           <h2>Fast Model Cash Register</h2>
         </header>
         <RegisterContext.Consumer>
-          {({ currencyVault, total }) => (
+          {({
+            $1,
+            $2,
+            $5,
+            $10,
+            $20,
+            sumTotal,
+            countTheCash,
+            marketValue,
+            takeTheCash,
+            swapTheCash,
+          }) => (
             <div className="register-display">
-              <CashAvailable currencyVault={currencyVault} />
+              <CashAvailable
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                marketValue={marketValue}
+                sumTotal={sumTotal}
               />
-              <AddCash currencyVault={currencyVault} />
-              <RemoveCash currencyVault={currencyVault} />
-              <ChangeCash currencyVault={currencyVault} />
+              <AddCash
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                countTheCash={countTheCash}
+                marketValue={marketValue}
+              />
+              <RemoveCash
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                takeTheCash={takeTheCash}
+                marketValue={marketValue}
+              />
+              <ChangeCash
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                swapTheCash={swapTheCash}
+                marketValue={marketValue}
+              />
             </div>
           )}
         </RegisterContext.Consumer>

@@ -1,52 +1,71 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 class RemoveCash extends Component {
-  componentDidMount() {
-    const arrRegister = _.cloneDeep(this.props.currencyVault);
-    this.setState({
-      arrRegister,
-    });
-  }
-
-  takeTheCash = event => {
-    const target = event.target;
-    const name = target.name;
-    const value = Number(target.value);
-    const offer = this.state.arrRegister.find(o => o.id === name);
-    const priorCount = offer.onHand;
-    if (offer.onHand === 0) {
-      console.log('cant do it');
-    } else {
-      const newCount = priorCount - value;
-      console.log(newCount);
-      this.setState({});
-    }
-  };
-
   render() {
-    // const { currRegister } = this.state;
-    // console.log(currRegister);
+    const { takeTheCash, marketValue } = this.props;
     return (
       <div className="cash-down">
         <h4>Take Cash from Register</h4>
         <div className="cash-down-window">
-          {this.props.currencyVault.map(coin => (
-            <div className="remove-cash">
-              <p>Take {coin.id}</p>
-              <input
-                type="number"
-                name={coin.id}
-                min="0"
-                step="1"
-                onChange={this.takeTheCash}
-              />
-            </div>
-          ))}
+          <div className="remove-cash">
+            <p>Take $1</p>
+            <input
+              type="text"
+              name="$1"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
+            <p>Take $2</p>
+            <input
+              type="text"
+              name="$2"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
+            <p>Take $5</p>
+            <input
+              type="text"
+              name="$5"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
+            <p>Take $10</p>
+            <input
+              type="text"
+              name="$10"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
+            <p>Take $20</p>
+            <input
+              type="text"
+              name="$20"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
         </div>
         <div className="close-cash-window">
-          <input type="text" />
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={marketValue}>
+            Submit
+          </button>
         </div>
       </div>
     );
