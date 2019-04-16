@@ -2,32 +2,70 @@ import React, { Component } from 'react';
 
 class RemoveCash extends Component {
   render() {
+    const { takeTheCash, marketValue } = this.props;
     return (
-      <div className="transaction">
+      <div className="cash-down">
         <h4>Take Cash from Register</h4>
-        <div className="removeWindow">
-          <button type="button" className="add-one-dollar">
+        <div className="cash-down-window">
+          <div className="remove-cash">
             <p>Take $1</p>
-            <input id="take-one" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-two-dollar">
+            <input
+              type="text"
+              name="$1"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
             <p>Take $2</p>
-            <input id="take-two" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-five-dollar">
+            <input
+              type="text"
+              name="$2"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
             <p>Take $5</p>
-            <input id="take-five" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-ten-dollar">
+            <input
+              type="text"
+              name="$5"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
             <p>Take $10</p>
-            <input id="take-ten" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-twenty-dollar">
+            <input
+              type="text"
+              name="$10"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+
+          <div className="remove-cash">
             <p>Take $20</p>
-            <input id="take-twenty" type="number" name="points" step="1" />
+            <input
+              type="text"
+              name="$20"
+              min="0"
+              step="1"
+              onBlur={takeTheCash}
+            />
+          </div>
+        </div>
+        <div className="close-cash-window">
+          <button type="submit" onClick={marketValue}>
+            Submit
           </button>
-          <input id="amount-to-take" className="total-to-take" type="text" />
-          <button type="submit">Submit</button>
         </div>
       </div>
     );

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import CashUp from './components/AddCash';
-import CashDown from './components/RemoveCash';
-import CashAvailable from './components/AvailableCash';
+import AddCash from './components/AddCash';
+import RemoveCash from './components/RemoveCash';
+import ChangeCash from './components/ChangeCash';
+import CashAvailable from './components/CashAvailable';
 import { RegisterContext } from './contexts/RegisterContext';
-import Storage from './components/Storage';
 
 class App extends Component {
   render() {
@@ -13,28 +13,59 @@ class App extends Component {
         <header className="App-header">
           <h2>Fast Model Cash Register</h2>
         </header>
-        <div className="register-display">
-          <Storage
-            render={({ load, save, remove }) => (
-              <RegisterContext.Consumer>
-                {({ dollarInventory, total }) => (
-                  <CashAvailable
-                    dollarInventory={dollarInventory}
-                    total={total}
-                    load={load}
-                    save={save}
-                    remove={remove}
-                  />
-                )}
-              </RegisterContext.Consumer>
-            )}
-          />
-
-          <RegisterContext.Consumer>
-            {({ checkVals }) => <CashUp checkVals={checkVals} />}
-          </RegisterContext.Consumer>
-          <CashDown />
-        </div>
+        <RegisterContext.Consumer>
+          {({
+            $1,
+            $2,
+            $5,
+            $10,
+            $20,
+            sumTotal,
+            countTheCash,
+            marketValue,
+            takeTheCash,
+            swapTheCash,
+          }) => (
+            <div className="register-display">
+              <CashAvailable
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                marketValue={marketValue}
+                sumTotal={sumTotal}
+              />
+              <AddCash
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                countTheCash={countTheCash}
+                marketValue={marketValue}
+              />
+              <RemoveCash
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                takeTheCash={takeTheCash}
+                marketValue={marketValue}
+              />
+              <ChangeCash
+                $1={$1}
+                $2={$2}
+                $5={$5}
+                $10={$10}
+                $20={$20}
+                swapTheCash={swapTheCash}
+                marketValue={marketValue}
+              />
+            </div>
+          )}
+        </RegisterContext.Consumer>
       </div>
     );
   }

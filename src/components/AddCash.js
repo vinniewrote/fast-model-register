@@ -2,32 +2,65 @@ import React, { Component } from 'react';
 
 class AddCash extends Component {
   render() {
+    const { countTheCash, marketValue } = this.props;
     return (
-      <div className="addCash">
+      <div className="cash-up">
         <h4>Add Cash to Register</h4>
-        <div className="addWindow">
-          <button type="button" className="add-one-dollar">
+        <div className="cash-up-window">
+          <div className="add-cash">
             <p>Add $1</p>
-            <input id="add-one" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-two-dollar">
+            <input
+              type="text"
+              name="$1"
+              min="0"
+              step="1"
+              onBlur={countTheCash}
+            />
+          </div>
+          <div className="add-cash">
             <p>Add $2</p>
-            <input id="add-two" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-five-dollar">
+            <input
+              type="text"
+              name="$2"
+              min="0"
+              step="1"
+              onBlur={countTheCash}
+            />
+          </div>
+          <div className="add-cash">
             <p>Add $5</p>
-            <input id="add-five" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-ten-dollar">
+            <input
+              type="text"
+              name="$5"
+              min="0"
+              step="1"
+              onBlur={countTheCash}
+            />
+          </div>
+          <div className="add-cash">
             <p>Add $10</p>
-            <input id="add-ten" type="number" name="points" step="1" />
-          </button>
-          <button type="button" className="add-twenty-dollar">
+            <input
+              type="text"
+              name="$10"
+              min="0"
+              step="1"
+              onBlur={countTheCash}
+            />
+          </div>
+          <div className="add-cash">
             <p>Add $20</p>
-            <input id="add-twenty" type="number" name="points" step="1" />
-          </button>
-          <input id="sum-total" className="total-to-add" type="text" />
-          <button type="submit" onClick={this.props.checkVals.bind(this)}>
+            <input
+              type="text"
+              name="$20"
+              min="0"
+              step="1"
+              onBlur={countTheCash}
+            />
+          </div>
+        </div>
+        <div className="close-cash-window">
+          {/* <input type="text" /> */}
+          <button type="submit" onClick={marketValue}>
             Submit
           </button>
         </div>
