@@ -23,6 +23,7 @@ export class RegisterProvider extends Component {
     const name = e.target.name;
     const value = Number(e.target.value);
     const previousCount = this.state[name];
+
     if (isNaN(value) || value === 0) {
       console.log('whoops');
       console.log(previousCount);
@@ -45,7 +46,7 @@ export class RegisterProvider extends Component {
     const diffCount = prevDiffCount - value;
     console.log(e.target);
     if (prevDiffCount === 0) {
-      alert('The drawer has an error');
+      alert('The drawer has no cash of this denomitation');
     } else if (diffCount < 0) {
       alert('Not enough in register');
     } else {
@@ -59,10 +60,29 @@ export class RegisterProvider extends Component {
     const target = e.target;
     const name = target.name;
     const value = Number(target.value);
-    const amtArray = [20, 10, 5, 2, 1];
-    const calcs = parseInt(value / amtArray);
-    // total %= amtArray[i];
-    console.log(calcs);
+    const swapArray = [];
+    const newRemTwenty = Math.floor(value % 20);
+    const newSwapTwenty = Math.floor(value / 20);
+
+    swapArray.push(newSwapTwenty);
+    const newRemTen = Math.floor(newRemTwenty % 10);
+    const newSwapTen = Math.floor(newRemTwenty / 10);
+
+    swapArray.push(newSwapTen);
+    const newRemFive = Math.floor(newRemTen % 5);
+    const newSwapFive = Math.floor(newRemTen / 5);
+
+    swapArray.push(newSwapFive);
+    const newRemTwo = Math.floor(newRemFive % 2);
+    const newSwapTwo = Math.floor(newRemFive / 2);
+
+    swapArray.push(newSwapTwo);
+    const newRemOne = Math.floor(newRemTwo % 1);
+    const newSwapOne = Math.floor(newRemTwo / 1);
+
+    swapArray.push(newSwapOne);
+    console.log(swapArray);
+    console.log(this.state);
   };
 
   render() {
