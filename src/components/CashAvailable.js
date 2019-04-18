@@ -6,11 +6,12 @@ class CashAvailable extends Component {
   }
 
   render() {
+    const { sumTotal, emptyRegister, exampleRegister } = this.props;
     return (
       <div className="cash-available">
         <div className="register-container">
           <div className="total-cash">
-            <h3>Cash Available ${this.props.sumTotal}</h3>
+            <h3>Value of Available Cash ${sumTotal}</h3>
           </div>
           <div className="denominations">
             <div className="denom-container">
@@ -47,6 +48,14 @@ class CashAvailable extends Component {
                 <h5>{this.props.$20}</h5>
               </div>
             </div>
+          </div>
+          <div className="registerButtons">
+            <button className="empty-reg" onClick={emptyRegister}>
+              Empty Register
+            </button>
+            <button className="sample-reg" onClick={exampleRegister}>
+              Morning Register
+            </button>
           </div>
         </div>
       </div>

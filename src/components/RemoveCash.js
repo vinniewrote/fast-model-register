@@ -64,7 +64,7 @@ class RemoveCash extends Component {
         </div>
         <div className="close-cash-window">
           <button type="submit" onClick={marketValue}>
-            Submit
+            Complete Transaction
           </button>
         </div>
       </div>
