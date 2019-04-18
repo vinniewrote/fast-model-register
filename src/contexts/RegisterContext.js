@@ -91,10 +91,11 @@ export class RegisterProvider extends Component {
     const newSwapOne = Math.floor(newRemTwo / 1);
 
     if (newSwapTwenty > $20) {
-      window.alert('sorry, not enough 20s in register');
+      alert('sorry, not enough 20s in register');
       e.target.value = '';
+    } else {
+      swapArray.push(newSwapTwenty);
     }
-    swapArray.push(newSwapTwenty);
 
     if (newSwapTen > $10) {
       alert('sorry, not enough 10s in register');
