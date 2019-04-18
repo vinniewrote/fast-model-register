@@ -18,7 +18,9 @@ class ChangeCash extends Component {
         </div>
         <div className="swap-container">
           {this.props.cashSwap.map((item, key) => (
-            <div className={`swap-${key}`}>{item}</div>
+            <div key={key} className={`swap-${key}`}>
+              {item}
+            </div>
           ))}
         </div>
       </div>
