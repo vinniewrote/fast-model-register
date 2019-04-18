@@ -9,59 +9,28 @@ class AddCash extends Component {
         <div className="cash-up-window">
           <div className="add-cash">
             <p>Add $1</p>
-            <input
-              type="text"
-              name="$1"
-              min="0"
-              step="1"
-              onBlur={countTheCash}
-            />
+            <input type="text" name="$1" min="0" onBlur={countTheCash} />
           </div>
           <div className="add-cash">
             <p>Add $2</p>
-            <input
-              type="text"
-              name="$2"
-              min="0"
-              step="1"
-              onBlur={countTheCash}
-            />
+            <input type="text" name="$2" min="0" onBlur={countTheCash} />
           </div>
           <div className="add-cash">
             <p>Add $5</p>
-            <input
-              type="text"
-              name="$5"
-              min="0"
-              step="1"
-              onBlur={countTheCash}
-            />
+            <input type="text" name="$5" min="0" onBlur={countTheCash} />
           </div>
           <div className="add-cash">
             <p>Add $10</p>
-            <input
-              type="text"
-              name="$10"
-              min="0"
-              step="1"
-              onBlur={countTheCash}
-            />
+            <input type="text" name="$10" min="0" onBlur={countTheCash} />
           </div>
           <div className="add-cash">
             <p>Add $20</p>
-            <input
-              type="text"
-              name="$20"
-              min="0"
-              step="1"
-              onBlur={countTheCash}
-            />
+            <input type="text" name="$20" min="0" onBlur={countTheCash} />
           </div>
         </div>
         <div className="close-cash-window">
-          {/* <input type="text" /> */}
           <button type="submit" onClick={marketValue}>
-            Submit
+            Complete Transaction
           </button>
         </div>
       </div>

@@ -37,15 +37,31 @@
   flex-direction: column;
 }
 
-/* Add Cash */
+.empty-reg,
+.sample-reg {
+  font-size: 1.5em;
+  background-color: yellowgreen;
+  border: 2px solid #ffffff;
+  padding: 0.85em 0.35em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Add, remove, swap cash */
 .cash-up-window,
 .cash-down-window,
 .cash-swap-window {
   display: flex;
 }
+.cash-available,
+.cash-up,
+.cash-down,
+.cash-swap {
+  margin: 40px 20px;
+}
 .add-cash,
-.remove-cash,
-.swap-cash {
+.remove-cash {
   width: 20%;
   border: 2px solid slateblue;
   border-radius: 8px;
@@ -79,4 +95,20 @@
   text-transform: uppercase;
   font-weight: bold;
   margin-left: 0.5em;
+}
+
+.cash-swap {
+  width: 50%;
+  border: 2px solid teal;
+  border-radius: 4px;
+}
+.swap-container {
+  display: flex;
+}
+.swap-cash {
+  width: 100%;
+}
+.swap-container div {
+  width: 20%;
+  line-height: 1.5em;
 }

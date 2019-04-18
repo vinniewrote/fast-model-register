@@ -20,11 +20,14 @@ class App extends Component {
             $5,
             $10,
             $20,
+            emptyRegister,
+            exampleRegister,
             sumTotal,
             countTheCash,
             marketValue,
             takeTheCash,
             swapTheCash,
+            cashSwap,
           }) => (
             <div className="register-display">
               <CashAvailable
@@ -33,6 +36,8 @@ class App extends Component {
                 $5={$5}
                 $10={$10}
                 $20={$20}
+                emptyRegister={emptyRegister}
+                exampleRegister={exampleRegister}
                 marketValue={marketValue}
                 sumTotal={sumTotal}
               />
@@ -62,6 +67,7 @@ class App extends Component {
                 $20={$20}
                 swapTheCash={swapTheCash}
                 marketValue={marketValue}
+                cashSwap={cashSwap}
               />
             </div>
           )}

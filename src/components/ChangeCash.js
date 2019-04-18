@@ -6,8 +6,7 @@ class ChangeCash extends Component {
       <div className="cash-swap">
         <h4>Swap Cash</h4>
         <div className="cash-swap-window">
-          <div className="remove-cash">
-            <p>Swap $</p>
+          <div className="swap-cash">
             <input
               type="text"
               name="swap-value"
@@ -17,8 +16,10 @@ class ChangeCash extends Component {
             />
           </div>
         </div>
-        <div className="close-cash-window">
-          <button type="submit">Submit</button>
+        <div className="swap-container">
+          {this.props.cashSwap.map((item, key) => (
+            <div className={`swap-${key}`}>{item}</div>
+          ))}
         </div>
       </div>
     );

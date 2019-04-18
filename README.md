@@ -1,6 +1,12 @@
 ## FastModel Sports Cash Register
 
-In the project directory, you can run:
+This app can:
+
+1. Add Cash to the register
+2. Remove cash from the register(pending availability)
+3. Dispense change for a given dollar amount (pending availability)
+
+### In the project directory, you can run:
 
 ### `yarn start`
 
@@ -19,8 +25,3 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-This app can:
-1: Add Cash to the register
-2: Remove cash from the register(pending availability)
-3: Dispense change for a given dollar amount (pending availability)
