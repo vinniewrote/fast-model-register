@@ -46,7 +46,6 @@ export class RegisterProvider extends Component {
     const name = e.target.name;
     const value = Number(e.target.value);
     const previousCount = this.state[name];
-
     if (isNaN(value) || value === 0) {
       console.log('whoops');
       console.log(previousCount);
@@ -63,11 +62,9 @@ export class RegisterProvider extends Component {
 
   takeTheCash = e => {
     const name = e.target.name;
-
     const value = Number(e.target.value);
     const prevDiffCount = this.state[name];
     const diffCount = prevDiffCount - value;
-
     if (diffCount <= 0) {
       alert('Not enough in register');
       e.target.value = '';
