@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
 class AddCash extends Component {
+  static propTypes = {
+    countTheCash: propTypes.func,
+    cashValue: propTypes.func,
+  };
+
   render() {
     const { countTheCash, cashValue } = this.props;
     return (
