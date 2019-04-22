@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
 class ChangeCash extends Component {
+  static propTypes = {
+    swapTheCash: propTypes.func,
+    cashSwap: propTypes.array,
+  };
+
   render() {
+    const { swapTheCash, cashSwap } = this.props;
     return (
       <div className="cash-swap">
         <h4>Swap Cash</h4>
@@ -12,12 +19,12 @@ class ChangeCash extends Component {
               name="swap-value"
               min="0"
               step="1"
-              onBlur={this.props.swapTheCash}
+              onBlur={swapTheCash}
             />
           </div>
         </div>
         <div className="swap-container">
-          {this.props.cashSwap.map((item, key) => (
+          {cashSwap.map((item, key) => (
             <div key={key} className={`swap-${key}`}>
               {item}
             </div>

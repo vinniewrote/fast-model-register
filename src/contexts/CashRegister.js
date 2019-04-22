@@ -1,8 +1,13 @@
 import React, { createContext, Component } from 'react';
+import propTypes from 'prop-types';
 
 export const CashRegisterContext = createContext();
 
 export class CashRegister extends Component {
+  static propTypes = {
+    children: propTypes.object,
+  };
+
   state = {
     $1: 10,
     $2: 5,
@@ -34,10 +39,6 @@ export class CashRegister extends Component {
     });
   };
 
-  clearFields = e => {
-    e.target.value = '';
-  };
-
   cashValue = () => {
     const { $1, $2, $5, $10, $20 } = this.state;
     const sumValue = $1 * 1 + $2 * 2 + $5 * 5 + $10 * 10 + $20 * 20;
@@ -52,7 +53,7 @@ export class CashRegister extends Component {
     const previousCount = this.state[name];
     if (isNaN(value) || value === 0) {
       alert('sorry, there is nothing to add. check the value entered');
-      this.clearFields();
+      e.target.value = '';
       this.setState({
         [name]: previousCount,
       });
@@ -134,6 +135,7 @@ export class CashRegister extends Component {
   };
 
   render() {
+    const { children } = this.props;
     return (
       <CashRegisterContext.Provider
         value={{
@@ -146,7 +148,7 @@ export class CashRegister extends Component {
           swapTheCash: this.swapTheCash,
         }}
       >
-        {this.props.children}
+        {children}
       </CashRegisterContext.Provider>
     );
   }
