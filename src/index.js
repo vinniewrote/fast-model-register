@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { RegisterProvider } from './contexts/RegisterContext';
+import { CashRegister } from './contexts/CashRegister';
 
 ReactDOM.render(
-  <RegisterProvider>
+  <CashRegister>
     <App />
-  </RegisterProvider>,
+  </CashRegister>,
   document.getElementById('root')
 );
 serviceWorker.unregister();

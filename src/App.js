@@ -4,7 +4,7 @@ import AddCash from './components/AddCash';
 import RemoveCash from './components/RemoveCash';
 import ChangeCash from './components/ChangeCash';
 import CashAvailable from './components/CashAvailable';
-import { RegisterContext } from './contexts/RegisterContext';
+import { CashRegisterContext } from './contexts/CashRegister';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
         <header className="App-header">
           <h2>Fast Model Cash Register</h2>
         </header>
-        <RegisterContext.Consumer>
+        <CashRegisterContext.Consumer>
           {({
             $1,
             $2,
@@ -24,7 +24,7 @@ class App extends Component {
             exampleRegister,
             sumTotal,
             countTheCash,
-            marketValue,
+            cashValue,
             takeTheCash,
             swapTheCash,
             cashSwap,
@@ -38,7 +38,7 @@ class App extends Component {
                 $20={$20}
                 emptyRegister={emptyRegister}
                 exampleRegister={exampleRegister}
-                marketValue={marketValue}
+                cashValue={cashValue}
                 sumTotal={sumTotal}
               />
               <AddCash
@@ -48,7 +48,7 @@ class App extends Component {
                 $10={$10}
                 $20={$20}
                 countTheCash={countTheCash}
-                marketValue={marketValue}
+                cashValue={cashValue}
               />
               <RemoveCash
                 $1={$1}
@@ -57,7 +57,7 @@ class App extends Component {
                 $10={$10}
                 $20={$20}
                 takeTheCash={takeTheCash}
-                marketValue={marketValue}
+                cashValue={cashValue}
               />
               <ChangeCash
                 $1={$1}
@@ -66,12 +66,12 @@ class App extends Component {
                 $10={$10}
                 $20={$20}
                 swapTheCash={swapTheCash}
-                marketValue={marketValue}
+                cashValue={cashValue}
                 cashSwap={cashSwap}
               />
             </div>
           )}
-        </RegisterContext.Consumer>
+        </CashRegisterContext.Consumer>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class CashAvailable extends Component {
   componentDidMount() {
-    this.props.marketValue();
+    this.props.cashValue();
   }
 
   render() {

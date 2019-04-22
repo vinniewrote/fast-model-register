@@ -36,7 +36,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .empty-reg,
 .sample-reg {
   font-size: 1.5em;
@@ -46,6 +45,7 @@
   border-radius: 8px;
   text-transform: uppercase;
   font-weight: bold;
+  margin: 1em 0;
 }
 
 /* Add, remove, swap cash */
@@ -60,20 +60,25 @@
 .cash-swap {
   margin: 40px 20px;
 }
-.add-cash,
-.remove-cash {
+.cash-up-btn,
+.cash-down-btn {
   width: 20%;
-  border: 2px solid slateblue;
   border-radius: 8px;
 }
-.add-cash input,
-.remove-cash input,
+.cash-up-btn {
+  border: 2px solid darkolivegreen;
+}
+.cash-down-btn {
+  border: 2px solid sandybrown;
+}
+.cash-up-btn input,
+.cash-down-btn input,
 .swap-cash input {
   padding: 0.5em 0.25em;
   margin: 0.5em 0.25em;
 }
-.add-cash p,
-.remove-cash p,
+.cash-up-btn p,
+.cash-down-btn p,
 .swap-cash p {
   margin: 0.5em 0.25em;
   font-weight: bold;
@@ -85,18 +90,23 @@
 .close-cash-window button {
   font-size: 1.5em;
   background-color: none;
-  border: 2px solid slateblue;
   padding: 0.5em 0.25em;
   border-radius: 8px;
 }
+.cash-up .close-cash-window button {
+  background: darkolivegreen;
+  border: 2px solid darkolivegreen;
+}
+.cash-down .close-cash-window button {
+  background: sandybrown;
+  border: 2px solid sandybrown;
+}
 .close-cash-window button {
-  background-color: slateblue;
   color: aliceblue;
   text-transform: uppercase;
   font-weight: bold;
   margin-left: 0.5em;
 }
-
 .cash-swap {
   width: 50%;
   border: 2px solid teal;
@@ -110,5 +120,6 @@
 }
 .swap-container div {
   width: 20%;
-  line-height: 1.5em;
+  line-height: 2.5em;
+  font-weight: bold;
 }

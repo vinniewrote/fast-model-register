@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class RemoveCash extends Component {
   render() {
-    const { takeTheCash, marketValue } = this.props;
+    const { takeTheCash, cashValue } = this.props;
     return (
       <div className="cash-down">
         <h4>Take Cash from Register</h4>
         <div className="cash-down-window">
-          <div className="remove-cash">
+          <div className="cash-down-btn">
             <p>Take $1</p>
             <input
               type="text"
@@ -18,7 +18,7 @@ class RemoveCash extends Component {
             />
           </div>
 
-          <div className="remove-cash">
+          <div className="cash-down-btn">
             <p>Take $2</p>
             <input
               type="text"
@@ -29,7 +29,7 @@ class RemoveCash extends Component {
             />
           </div>
 
-          <div className="remove-cash">
+          <div className="cash-down-btn">
             <p>Take $5</p>
             <input
               type="text"
@@ -40,7 +40,7 @@ class RemoveCash extends Component {
             />
           </div>
 
-          <div className="remove-cash">
+          <div className="cash-down-btn">
             <p>Take $10</p>
             <input
               type="text"
@@ -51,7 +51,7 @@ class RemoveCash extends Component {
             />
           </div>
 
-          <div className="remove-cash">
+          <div className="cash-down-btn">
             <p>Take $20</p>
             <input
               type="text"
@@ -63,7 +63,7 @@ class RemoveCash extends Component {
           </div>
         </div>
         <div className="close-cash-window">
-          <button type="submit" onClick={marketValue}>
+          <button type="submit" onClick={cashValue}>
             Complete Transaction
           </button>
         </div>
