@@ -17,6 +17,7 @@ Building upon this app:
 
 1. Add Storybook for better module UI management
 2. Include testing (jest to get quickly up and running)
+3. Refactor the Swap Cash module to calculate in a cleaner way.
 
 ### In the project directory, you can run:
 
